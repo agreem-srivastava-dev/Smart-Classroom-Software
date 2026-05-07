@@ -1,0 +1,35 @@
+# Smart Classroom System - Copyright (c) 2025 Agreem Srivastava
+
+# Core
+opencv-python==4.10.0.84
+numpy==1.26.4
+pandas==2.2.2
+
+# Face Recognition
+deepface==0.0.79
+tensorflow==2.15.1
+
+# Object Detection
+ultralytics==8.2.0
+
+# Engagement Analysis
+mediapipe==0.10.14
+protobuf==4.25.5
+
+# Backend
+fastapi==0.111.0
+uvicorn==0.30.1
+python-multipart==0.0.9
+
+# Frontend
+streamlit==1.37.0
+pillow==10.3.0
+packaging==24.1
+
+# ML & Visualization
+scikit-learn==1.5.0
+matplotlib==3.8.4
+seaborn==0.13.2
+
+#Utilities
+joblib==1.3.2
