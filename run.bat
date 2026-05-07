@@ -1,39 +1,61 @@
-```bat
+```bat id="q0z6m8"
 @echo off
-title Smart Classroom AI System Launcher By Agreem Srivastava
+title Smart Classroom AI System
+
+color 0A
 
 echo ==========================================
-echo     SMART CLASSROOM AI SYSTEM
+echo        SMART CLASSROOM AI SYSTEM
 echo ==========================================
 echo.
 echo Starting Backend Server...
 echo Starting Streamlit Dashboard...
 echo.
 
-REM Activate virtual environment (optional)
-REM Uncomment if using venv
-REM call venv\Scripts\activate
+REM ==========================================
+REM START BACKEND HIDDEN
+REM ==========================================
 
-REM Start FastAPI Backend
-start "FastAPI Backend" cmd /k "cd backend && uvicorn main:app --reload"
+start /min cmd /c "cd backend && uvicorn main:app --reload"
 
-REM Wait 2 seconds
+REM WAIT
+timeout /t 3 >nul
+
+REM ==========================================
+REM START STREAMLIT HIDDEN
+REM ==========================================
+
+start /min cmd /c "cd frontend && streamlit run finalfrontend2.py"
+
+echo ==========================================
+echo.
+echo Backend Running  : http://127.0.0.1:8000
+echo Frontend Running : http://localhost:8501
+echo.
+echo Type EXIT and press ENTER to stop system
+echo ==========================================
+echo.
+
+:loop
+set /p command=
+
+if /I "%command%"=="exit" goto shutdown
+
+goto loop
+
+:shutdown
+
+echo.
+echo Stopping Smart Classroom System...
+echo.
+
+REM Kill Streamlit
+taskkill /F /IM streamlit.exe >nul 2>&1
+
+REM Kill Uvicorn / Python
+taskkill /F /IM python.exe >nul 2>&1
+
+echo System Stopped Successfully.
 timeout /t 2 >nul
-
-REM Start Streamlit Frontend
-start "Streamlit Dashboard" cmd /k "cd frontend && streamlit run finalfrontend2.py"
-
-echo.
-echo ==========================================
-echo Servers Started Successfully
-echo ==========================================
-echo.
-echo Backend:
-echo http://127.0.0.1:8000
-echo.
-echo Frontend:
-echo http://localhost:8501
-echo.
-pause
+exit
 ```
-
