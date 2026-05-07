@@ -72,7 +72,7 @@ Built for the **BIT Mesra Science Exhibition 2025**, it combines face recognitio
 ### 1. Clone the repository
 ```bash
 
-    git clone https://github.com/yourusername/smart-classroom-software.git
+    git clone https://github.com/agreem-srivastava-dev/smart-classroom-software.git
     cd smart-classroom-software
 
     2. Create a virtual environment (recommended)
